@@ -1,3 +1,10 @@
+@push('css')
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    
+@endpush
 @if(request()->segment(count(request()->segments())) == 'edit') 
     <div class="mt-1">
         @if($data->image)
@@ -40,7 +47,7 @@
     @php
         $jenis_kelamin = ['Laki-Laki', 'Perempuan'];  
     @endphp
-    <select class="form-select @error('jenis_kelamin') is-invalid @enderror cursor-pointer" name="jenis_kelamin" id="jenis_kelamin" required>
+    <select class="form-select @error('jenis_kelamin') is-invalid @enderror cursor-pointer jsn" name="jenis_kelamin" id="jenis_kelamin" required>
         <option value="">Pilih Jenis Kelamin</option>
         @foreach ($jenis_kelamin as $jk)
             <option value="{{ $jk }}" {{ old('jenis_kelamin', $data->jenis_kelamin) == $jk ? 'selected' : '' }}>{{ $jk }}</option>
@@ -156,4 +163,18 @@
 <script>
     CKEDITOR.replace('address');
 </script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.jsn').select2();
+    });
+</script>
+
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
 @endpush

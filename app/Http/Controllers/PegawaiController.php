@@ -31,7 +31,7 @@ class PegawaiController extends Controller
     public function store(Request $request){
         $rules = [
             'name' => ['required'],
-            'email' => ['required'],
+            'email' => ['required','unique:pegawais'],
             'address' => ['required'],
             'no_telepon' => ['required','numeric'],
             'image' => ['required','image','file'],
@@ -72,7 +72,7 @@ class PegawaiController extends Controller
         $data = Pegawai::find($id);
         $rules = [
             'name' => ['required'],
-            'email' => ['required'],
+            'email' => ['required','unique:pegawais,email,'.$id],
             'address' => ['required'],
             'no_telepon' => ['required','numeric'],
             'image' => ['image','file'],

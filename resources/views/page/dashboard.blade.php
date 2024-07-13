@@ -1,8 +1,6 @@
 @extends('layout.main')
 
 @push('css')
-
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     
 @endpush
 
@@ -31,8 +29,11 @@
         <h5>Halo, {{ $greet }}... </h5>
 
        
-
-
         
+      
         @endsection
        
+
+        
+            
+        @endpush

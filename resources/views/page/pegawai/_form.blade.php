@@ -2,7 +2,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     
 @endpush
 @if(request()->segment(count(request()->segments())) == 'edit') 
@@ -130,8 +130,8 @@
     <label class="form-label" for="hire_date">Tanggal Mulai</label>
     <div class="input-group input-group-merge">
         <input
-        type="date"
-        class="form-control @error('hire_date') is-invalid @enderror"
+        type="text"
+        class="form-control datepicker @error('hire_date') is-invalid @enderror"
         name="hire_date"
         id="hire_date"
         value="{{ old('hire_date', $data->hire_date) }}" required />
@@ -174,7 +174,16 @@
 
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+     $(document).ready(function(){
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',  // Specify your desired date format
+            autoclose: true       // Close the datepicker when date is selected
+        });
+    });
+</script>
 
 @endpush
